@@ -1,7 +1,13 @@
+import { useContext } from 'react';
+import { CartContext } from '../context/CartContext';
+
 
 export const Product = ({id, name, description, price, image}) => {
 
+	const { addToCart } = useContext(CartContext);
+
 	const handleBuy = () => {
+		addToCart(id, name, price);
 		console.log(`Product ${id} added to cart`)
 	}
 
